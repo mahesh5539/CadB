@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/CadBlayout.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/slideMain.css' />
+    <link href ='/stylesheets/bootstrap.min.css' rel ='stylesheet'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <style>h4{font-size:15px;font-family: fantasy; font-style: bold; font-style: oblique;} </style>
+    <script type="text/javascript" src="js/createuser.js"></script>
+    <script type="text/javascript">
+        
+        function folderExpand(event) {
+            var $this = $(event).parent().parent();
+            if ($this.hasClass('folderExpand')) {
+                $this.removeClass('folderExpand');
+            } else {
+                $this.addClass('folderExpand');
+            }
+            return false;
+        }
+        
+    
+      function layoutmodule($scope, $http) {
+           
+      $scope.templates = [
+      		{
+      		 	name: 'Home',
+                url: '/home'
+      		},
+      		{
+                name: 'Menu',
+                url: '/menu'
+            },
+             {
+		        name: 'Sign In',
+		        url: '/signin'
+		    },
+		    {
+		        name: 'Order Online',
+		        url: '/orderonline'
+		    },
+		   
+		    {
+		        name: 'Sign Up',
+		        url: '/signup'
+		    },
+		     {
+		        name: 'Image Galary',
+		        url: '/galary'
+		    },
+		    {
+		        name: 'About Us',
+		        url: '/aboutus'
+		    }
+		   ];
+		   
+		   
+      
+      $scope.navigateToHome = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").addClass("current");
+	                	$("#menuimage").removeClass("current");
+	                	$("#signinimage").removeClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").removeClass("current");	
+	                	$("#galaryimage").removeClass("current");
+	                	$("#aboutusimage").removeClass("current");
+        				$scope.template = $scope.templates[0];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+	          $scope.navigateToMenu = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").removeClass("current");
+	                	$("#menuimage").addClass("current");
+	                	$("#signinimage").removeClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").removeClass("current");	
+	                	$("#galaryimage").removeClass("current");
+	                	$("#aboutusimage").removeClass("current");
+        				$scope.template = $scope.templates[1];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+	         
+	          $scope.navigateToSignin = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").removeClass("current");
+	                	$("#menuimage").removeClass("current");
+	                	$("#signinimage").addClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").removeClass("current");	
+	                	$("#galaryimage").removeClass("current");
+	                	$("#aboutusimage").removeClass("current");
+        				$scope.template = $scope.templates[2];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+	          $scope.navigateToSignup = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").removeClass("current");
+	                	$("#menuimage").removeClass("current");
+	                	$("#signinimage").removeClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").addClass("current");	
+	                	$("#galaryimage").removeClass("current");
+	                	$("#aboutusimage").removeClass("current");
+        				$scope.template = $scope.templates[4];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+	         $scope.navigateToGalary = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").removeClass("current");
+	                	$("#menuimage").removeClass("current");
+	                	$("#signinimage").removeClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").removeClass("current");	
+	                	$("#galaryimage").addClass("current");
+	                	$("#aboutusimage").removeClass("current");
+        				$scope.template = $scope.templates[5];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+	          $scope.navigateToAboutus = function(){
+            	var url = "/navigate";
+	            $http({
+	                method: 'GET',
+	                url: url
+	            }).success(function(response){
+	                if(true){	                
+	                	$("#homeimage").addClass("current");
+	                	$("#menuimage").removeClass("current");
+	                	$("#signinimage").removeClass("current");
+	                	$("#orderonlineimage").removeClass("current");
+	                	$("#signupimage").removeClass("current");	
+	                	$("#galaryimage").removeClass("current");
+	                	$("#aboutusimage").addClass("current");
+        				$scope.template = $scope.templates[6];
+	                }
+	                else{
+	                	alert("Session has expired please login again.");
+	                	window.location.href = "/logout";
+	                }
+	            }).error(function(err){
+	                alert(err.value.message);
+	            });
+	        }
+	        
+      }
+    </script>
+    
+    
+    
+  </head>
+  <body ng-controller = "layoutmodule">
+    <div class="layoutwrapper" id="pageHome">
+        <table style="width: 100%; height: 100%">
+           
+            <tr style="height: 85%">
+                <td>
+                    <div id="header">
+                        <div class="boxRight">
+                            <div class="boxCenter">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 15%; vertical-align: top">
+                                            <h1 style="margin-top: 7px">
+                                                <img title="Cad B" style="margin-top: 15px; margin-left:50px;" src="images/logo.jpg" alt="Cad B" />
+                                            </h1>
+                                        </td>
+                                        <td style="width: 70%; vertical-align: middle; text-align: left">
+                                            <div id="masterMenu">
+                                                <!-- main menus -->
+                                                <table width="100%" align="center">
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table width="80%" align="center">
+                                                                 <tr>
+                                                                 	<td style="position: relative; top:-10px;">
+                                                                 	<h2><img id ="homeimage" class= "current" alt="Home" ng-click="navigateToHome()" src="images/home.png" title="Home" style="cursor: pointer; height: 102px; width: 102px;"></h2>
+                                                                 	</td>
+                                                                 	<td style="position: relative; left:8px; top:-10px;">
+																		<h2><img id ="menuimage" alt="Menu" ng-click="navigateToMenu()" src="images/CadbImages/Menu.png" title="Menu" style="cursor: pointer; height: 75px; width: 80px;"></h2>
+																	</td>
+																	<td style="position:relative; left:18px; top:-10px;">
+																		<h2><img id="signinimage" alt="Signin" ng-click="navigateToSignin()" src="images/CadbImages/signin.png" title="Sign In" style="cursor: pointer; height: 100px; width: 100px;"></h2>
+																	</td>
+
+																	<td style="position:relative; left:15px; top:-10px;">
+																		<h2><img id="orderonlineimage" alt="OrderOnline" ng-click="navigateToOrder()"src="images/CadbImages/orderonline.png" title ="Order Online" style="cursor: pointer; height: 100px; width: 100px;"></h2> 
+																	</td>
+
+																	<td style="position: relative; left:15px; top:-10px;">
+																		<h2><img id="signupimage" alt="Signup" ng-click="navigateToSignup()"src="images/CadbImages/signup.png" title="Sign up" style="cursor: pointer; height: 100px; width: 100px;"></h2>
+																	</td>										
+																	<td style="position:relative; left:15px; top:-10px;">
+																		<h2><img id="galaryimage" alt="Image Galary" ng-click="navigateToGalary()"src="images/galary.png" title="Image Galary" style="cursor: pointer; height: 100px; width: 100px;"></h2>
+																	</td>
+																	<td style="position:relative; left:17px; top:-10px;">
+																		<h2><img id="aboutusimage" alt="Aboutus" ng-click="navigateToAboutus()"src="images/CadbImages/aboutus.png" title="About us" style="cursor: pointer; height: 100px; width: 100px;"></h2>
+																	</td>
+                                                                 </tr>
+                                                                 
+                                                                 <tr>
+                                                                 <td style="position:relative; left:30px; top:-50px;"><h4>Home</h4></td>
+                                                                 <td style="position:relative; left:28px; top:-50px;"><h4>Menu</h4></td>
+                                                                 <td style="position:relative; left:45px; top:-50px;"><h4>Sign In</h4></td>
+                                                                 <td style="position:relative; left:25px; top:-50px;"><h4>Order Online</h4></td>                                                                 
+                                                                 <td style="position:relative; left:40px; top:-50px;"><h4>Sign Up</h4></td>                                                                 
+                                                                  <td style="position:relative; left:25px; top:-50px;"><h4>Image Galary</h4></td>
+                                                                  <td style="position:relative; left:40px; top:-50px;"><h4>About Us</h4></td>
+                                                                 </tr>
+                                                            </table> 
+                                                        </td> 
+                                                    </tr>
+                                                 </table> 
+                                            </div>
+                                         </td> 
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id ="homepart">
+                    <div ng-include src="template.url"></div>
+				  </div>
+       	   	</td>             
+      	</tr>
+  </table>
+</div>  
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>      
+<script type="text/javascript" src="js/slideMainJs.js"></script>   
+  </body>
+</html>
